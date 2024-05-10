@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: merkoadelina/cloud-dev-app:latest
+        image: albapupli/cloud-dev-app:latest
         imagePullPolicy: Always
         securityContext:
           allowPrivilegeEscalation: false

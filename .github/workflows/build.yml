@@ -29,9 +29,8 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
           # dockerhub repo cloud-dev-app
-          repository: merkoadelina/cloud-dev-app
+          repository: albapupli/cloud-dev-app
           tag_with_ref: true
 
    #executed build maven
-
 
