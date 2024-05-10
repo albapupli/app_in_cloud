@@ -27,3 +27,5 @@ jobs:
         password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
         repository: albapupli/app_in_cloud    
         tags: ${{github.run_number}}
+
+        
