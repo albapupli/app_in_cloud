@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: albapupli/devops:7
+        image: albapupli/app_in_cloud:latest
         imagePullPolicy: Always
         securityContext:
           allowPrivilegeEscalation: false
