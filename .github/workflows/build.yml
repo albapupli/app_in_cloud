@@ -27,7 +27,7 @@ jobs:
         dockerfile: Dockerfile 
         username: ${{ secrets.DOCKER_HUB_USERNAME }} 
         password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: albapupli/app_in_cloud    
+        repository: albapupli/devops    
         #tags: ${{github.run_number}}
         tag_with_ref: true
 
