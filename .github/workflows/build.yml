@@ -1,34 +1,37 @@
 name: Java CI with Maven
 on:
   push:
-    branches: [ "main" ]
-# env:
-  # db secrets
-  # DB_URL: ${{secrets.DB_URL}}
-  # DB_USERNAME: ${{secrets.DB_USERNAME}}
-  # DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+    branches: ['main']
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Publish to Docker Hub
-      uses: docker/build-push-action@v1  
-      with:
-        context: .
-        dockerfile: Dockerfile 
-        username: ${{ secrets.DOCKER_HUB_USERNAME }} 
-        password:  ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: albapupli/devops    
-        #tags: ${{github.run_number}}
-        tag_with_ref: true
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Publish to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          context: .
+          dockerfile: Dockerfile
+
+          #Added Docker_Hub_Username  and Docker_Hub_Password
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+          # dockerhub repo cloud-dev-app
+          repository: merkoadelina/cloud-dev-app
+          tag_with_ref: true
+
+   #executed build maven
 
 
